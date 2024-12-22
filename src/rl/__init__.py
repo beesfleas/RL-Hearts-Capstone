@@ -1,3 +1,3 @@
-from .cfr import cfr
-from .mcts import mcts
-from .td_agent import td_agent
+from .cfr import CFR
+from .mcts import MCTS
+from .td_agent import TDAgent
