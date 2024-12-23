@@ -1,4 +1,4 @@
-from cardUtils import Card, Hand, Deck
+from Cards import Card, Hand, Deck
 
 deck = Deck()
 deck.shuffle()
