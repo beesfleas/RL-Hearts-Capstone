@@ -32,7 +32,7 @@ class Round:
     def __init__(self):
         self.tricksPlayed = 0
         self.points = np.zeros(4, dtype=np.int8)
-
+        self.heartsBroken = False
         deck = Deck()
         deck.shuffle()
         self.hands = [self.deck.deal_hand() for _ in range(4)]
@@ -47,6 +47,7 @@ class Round:
 
     def getTurn(self, card):
         self.currentPlayer += 1
+        self.currentTrick.add_card(card)
 
     def newTrick(self):
         winner = self.currentTrick.determine_winner()
