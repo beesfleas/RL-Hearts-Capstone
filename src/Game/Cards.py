@@ -8,7 +8,7 @@ class Card:
         if np.array_equal(self.card, np.array([-1, -1], dtype=np.int8)):
             return "X" 
         suits = ["♣", "♢", "♡", "♠"]
-        ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+        ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
         return f"{ranks[self.card[1]]}{suits[self.card[0]]}"
 
 class Hand:

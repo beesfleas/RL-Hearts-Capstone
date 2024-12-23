@@ -49,6 +49,10 @@ class Round:
         self.currentPlayer += 1
         self.currentTrick.add_card(card)
 
+    def playTrick(self):
+        while(self.currentTrick.card_count != 4):
+            getTurn()
+
     def newTrick(self):
         winner = self.currentTrick.determine_winner()
         points = self.currentTrick.getPoints()
@@ -57,6 +61,8 @@ class Round:
         self.currentTrick = Trick(winner)
         self.currentPlayer = winner
         self.tricksPlayed += 1
+
+    
 
 
 
