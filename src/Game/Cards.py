@@ -2,10 +2,10 @@ import numpy as np
 
 class Card:
     def __init__(self, suit, rank):
-        self.card = np.array([suit, rank], dtype=np.int8)
+        self.card = np.array([suit, rank], dtype=np.int16)
     
     def __str__(self):
-        if np.array_equal(self.card, np.array([-1, -1], dtype=np.int8)):
+        if np.array_equal(self.card, np.array([-1, -1], dtype=np.int16)):
             return "X" 
         suits = ["♣", "♢", "♡", "♠"]
         ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
@@ -17,7 +17,7 @@ class Hand:
     
     def play_card(self, index):
         played_card = self.cards[index]
-        self.cards[index] = np.array([-1, -1], dtype=np.int8)
+        self.cards[index] = np.array([-1, -1], dtype=np.int16)
         return Card(played_card[0], played_card[1])
     
     def __str__(self):
@@ -25,8 +25,8 @@ class Hand:
 
 class Deck:
     def __init__(self):
-        self.cards = np.column_stack((np.repeat(np.arange(4, dtype=np.int8), 13), 
-                                      np.tile(np.arange(13, dtype=np.int8), 4)))
+        self.cards = np.column_stack((np.repeat(np.arange(4, dtype=np.int16), 13), 
+                                      np.tile(np.arange(13, dtype=np.int16), 4)))
     
     def shuffle(self):
         np.random.shuffle(self.cards)
@@ -35,6 +35,6 @@ class Deck:
         if len(self.cards) < 13:
             print("No cards left to deal.")
             return None 
-        hand_cards = np.array(self.cards[:13], dtype=np.int8)
+        hand_cards = np.array(self.cards[:13], dtype=np.int16)
         self.cards = self.cards[13:] 
         return Hand(hand_cards) 
