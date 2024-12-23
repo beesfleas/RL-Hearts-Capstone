@@ -43,8 +43,6 @@ class Deck:
         self.cards = self.cards[13:] 
         return Hand(hand_cards) 
 
-
-
 class Trick:
     def __init__(self, startOrder):
         self.startOrder = startOrder
@@ -69,9 +67,5 @@ class Trick:
         winner = np.argmax(self.cards[self.cards[:, 1] * trumpMask])
         return (winner+self.startOrder) % 4
 
-class Table:
-    def __init__(self): 
-        self.currentTrick = None
-        self.tricksPlayed = 0
-        self.currentPlayer = -1
-
+class Round:
+    
